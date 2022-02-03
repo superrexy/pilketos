@@ -172,7 +172,7 @@ export default function AdminDashboard(props) {
 
                     <hr className="mb-3" />
 
-                    <NavLink to="auth.logout" method="POST" replace>
+                    <NavLink to="auth.logout" method="POST" as="button" replace>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-6 h-6 mr-5"

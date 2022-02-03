@@ -10,6 +10,8 @@ import {
     Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import Echo from "laravel-echo";
+import { Inertia } from "@inertiajs/inertia";
 
 ChartJS.register(
     CategoryScale,
@@ -28,6 +30,12 @@ export default function Index(props) {
         data: [i.voter_count],
         backgroundColor: i.color_hex,
     }));
+
+    window.Echo.channel("vote").listen("PilketosVote", ({ vote }) => {
+        Inertia.reload({
+            preserveScroll: true,
+        });
+    });
 
     return (
         <>
